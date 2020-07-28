@@ -1,3 +1,5 @@
+import os.path
+
 def calcBreakin(x) :
     ip = x.split(' ')
     operation = ip[1]
@@ -12,7 +14,7 @@ def calcBreakin(x) :
     if operation == '/':
         print(int1 / int2)
 
-with open('input.txt', 'r') as calculator:
+with open(os.path.abspath('Firstday/input.txt'), 'r') as calculator:
     each_ip= calculator.read().splitlines()
     line_count = len(each_ip)
     currentLine = 0
