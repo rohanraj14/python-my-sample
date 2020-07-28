@@ -32,10 +32,23 @@ def itrateMe( current_statement, line_count, list_stmts):
             list_stmts.append(new_statement)
             itrateMe(new_statement, line_count, list_stmts)
         else:
-            print('Already passed once : '+ new_statement)
+            append_new_line(os.path.abspath('Firstday/OutputStep3.txt'), 'Already reached once : '+ new_statement)
+           
+
+def append_new_line(file_name, text_append):
+    # Open the file in append & read mode ('a+')
+    with open(file_name, "a+") as f:
+        # Move read cursor to the start of file.
+        f.seek(0)
+        # If not empty file then enter new line
+        data = f.read(100)
+        if len(data) > 0:
+            f.write("\n")
+        # Append the text at end of file
+        f.write(text_append)
 
 
-with open(os.path.abspath('Firstday/input3.txt'), 'r') as calculator:
+with open(os.path.abspath('Firstday/input2.txt'), 'r') as calculator:
     each_line = calculator.read().splitlines()
     line_count = len(each_line)
     currentIndex = 0   
